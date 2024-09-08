@@ -3,10 +3,10 @@ import { useGetMoviesQuery } from '../../services/TMDB';
 import { useSelector } from 'react-redux';
 import {MovieList} from '..';
 import { Box, CircularProgress, Typography } from '@mui/material';
-import {selectGenreOrCategory } from '../../features/currentGenreOrCategory'
+
 
 const Movies = () => {
-  const [page,setpPage] = useState(1);
+  const [page] = useState(1);
   const {genreIdOrCategoryName, searchQuery} = useSelector((state) => state.currentGenreOrCategory);
   const { data, error, isFetching } = useGetMoviesQuery({ genreIdOrCategoryName, page, searchQuery});
 
